@@ -6,6 +6,7 @@
     <title>Music Box</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/lcd" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script>dayjs().format()</script>
@@ -44,9 +45,10 @@
           </div>
         </div>
         <br>
-        <a href="/message" class="button is-fullwidth is-info is-large">Message Box</a>
+        <!--a href="/message" class="button is-fullwidth is-info is-large">Message Box</a>
         <br>
-        <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a>
+        <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a-->
+        <input type="date" data-display-mode="inline" data-is-range="true" data-close-on-select="false">
       </section>
   </div>
     
@@ -256,7 +258,25 @@
       let ms = dayjs().format('HH:mm');
       document.getElementById("maindisplay").innerHTML = ms;
     },1000);
+    var calendars = bulmaCalendar.attach('[type="date"]', options);
 
-</script>
+    // Loop on each calendar initialized
+    for(var i = 0; i < calendars.length; i++) {
+    	// Add listener to select event
+    	calendars[i].on('select', date => {
+    		console.log(date);
+    	});
+    }
+    
+    // To access to bulmaCalendar instance of an element
+    var element = document.querySelector('#my-element');
+    if (element) {
+    	// bulmaCalendar instance is available as element.bulmaCalendar
+    	element.bulmaCalendar.on('select', function(datepicker) {
+    		console.log(datepicker.data.value());
+    	});
+    }
+</script> 
+<script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
 
 </html>
