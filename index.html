@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ESP32 Web BLE App</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="UTF-8">
-</head>
+    <title>Music Box</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://fonts.cdnfonts.com/css/lcd" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
+    <style>
+      .LCDText{
+        font-family: 'Digitalism', sans-serif;
+        color: #ffff00;
+        font-size:30vw;
+      }
+      .LCDBG{
+        /*background-color: #ffff00*/
+      }
+      
+    </style>
+  </head>
 <body>
     <div class="topnav">
         <h1>ESP32 Web BLE Application</h1>
