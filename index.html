@@ -22,6 +22,28 @@
     </style>
   </head>
 <body>
+    <div class="container">
+    <section class="section">
+        <h1 class="title has-text-centered">
+          Dot Matrix Clock
+        </h1>
+        <div class="card has-background-grey-light">
+          <div class="card-content LCDBG">
+            <span class="LCDText">
+              <div class="columns is-mobile is-centered">
+                <div class="card-content" id="maindisplay">  
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <br>
+        <a href="/message" class="button is-fullwidth is-info is-large">Message Box</a>
+        <br>
+        <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a>
+      </section>
+  </div>
+    
     <div class="topnav">
         <h1>ESP32 Web BLE Application</h1>
     </div>
@@ -221,7 +243,13 @@
         var datetime = day + "/" + month + "/" + year + " at " + hours + ":" + minutes + ":" + seconds;
         return datetime;
     }
-
+    setInterval(function(){
+      let weekday = dayjs().format('dddd');
+      let MDY = dayjs().format('MMMM DD YYYY');
+      let Hms = dayjs().format('HH:mm:ss');
+      let ms = dayjs().format('HH:mm');
+      document.getElementById("maindisplay").innerHTML = ms;
+    },1000);
 
 </script>
 
