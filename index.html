@@ -50,6 +50,7 @@
         <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a-->
         <!--input type="time" data-display-mode="inline" data-is-range="true" data-close-on-select="false"-->
         <input type="time">
+        <button class="button" id="setAlarmButton">Set Alarm</button>
       </section>
   </div>
     
@@ -115,12 +116,20 @@
         }
     });
 
+    
+
     // Disconnect Button
     disconnectButton.addEventListener('click', disconnectDevice);
 
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic(1));
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
+
+    setAlarmButton.addEventListener('click', () => setAlarm());
+
+    function setAlarm(){
+        alarm("setAlarm");
+    }
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
