@@ -130,6 +130,18 @@
 
     function setAlarm(){
         console.log(document.getElementById("alarmTime").value);
+        var alarmtime = document.getElementById("alarmTime").value;
+        if (bleServer && bleServer.connected) {
+            bleServiceFound.getCharacteristic(ledCharacteristic)
+            .then(characteristic => {
+                console.log("send setting: ", characteristic.uuid);
+                const data = new Uint8Array([alarmtime]);
+                return characteristic.writeValue(data);
+            })
+        } else {
+            console.error ("Bluetooth is not connected. Cannot write to characteristic.")
+            window.alert("Bluetooth is not connected. Cannot write to characteristic. \n Connect to BLE first!")
+        }
     }
 
     // Check if BLE is available in your Browser
