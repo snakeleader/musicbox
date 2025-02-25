@@ -131,6 +131,7 @@
     function setAlarm(){
         console.log(document.getElementById("alarmTime").value);
         var alarmtime = document.getElementById("alarmTime").value;
+        alarmtime = parseInt(alarmtime);
         if (bleServer && bleServer.connected) {
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
