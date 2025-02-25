@@ -135,8 +135,8 @@
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
                 console.log("send setting: ", characteristic.uuid);
-                const data = new Uint8Array([alarmtime]);
-                return characteristic.writeValue(data);
+                //const data = new Uint8Array([alarmtime]);
+                return characteristic.writeValue(alarmtime);
             })
         } else {
             console.error ("Bluetooth is not connected. Cannot write to characteristic.")
