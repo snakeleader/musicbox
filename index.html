@@ -49,7 +49,6 @@
         <br>
         <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a-->
         <!--input type="time" data-display-mode="inline" data-is-range="true" data-close-on-select="false"-->
-        <input type="time" id="my-element">
         <button class="button" id="setAlarmButton">Set Alarm</button>
       </section>
   </div>
@@ -271,26 +270,4 @@
     },1000);
     
 </script> 
-<script src="./bulma-calendar.min.js"></script>
-<script>
-    // Initialize all input of type date
-var calendars = bulmaCalendar.attach('[type="date"]', options);
-
-// Loop on each calendar initialized
-for(var i = 0; i < calendars.length; i++) {
-	// Add listener to select event
-	calendars[i].on('select', date => {
-		console.log(date);
-	});
-}
-
-// To access to bulmaCalendar instance of an element
-var element = document.querySelector('#my-element');
-if (element) {
-	// bulmaCalendar instance is available as element.bulmaCalendar
-	element.bulmaCalendar.on('select', function(datepicker) {
-		console.log(datepicker.data.value());
-	});
-}
-</script>
 </html>
