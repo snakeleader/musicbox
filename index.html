@@ -135,7 +135,7 @@
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
                 console.log("send setting: ", characteristic.uuid);
-                //const data = new Uint8Array([alarmtime]);
+                const data = new Uint8Array([alarmtime]);
                 return characteristic.writeValue(alarmtime);
             })
         } else {
@@ -218,7 +218,8 @@
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
                 console.log("Found the LED characteristic: ", characteristic.uuid);
-                const data = new Uint8Array([value]);
+                const data = new Uint8Array(2);
+                data[0] = 1234;
                 return characteristic.writeValue(data);
             })
             .then(() => {
