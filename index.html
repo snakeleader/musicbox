@@ -116,7 +116,13 @@
         }
     });
 
-    
+    var calendars = bulmaCalendar.attach('[type="time"]', options);
+    for(var i = 0; i < calendars.length; i++) {
+	// Add listener to select event
+	calendars[i].on('select', time => {
+		console.log(date);
+	});
+}
 
     // Disconnect Button
     disconnectButton.addEventListener('click', disconnectDevice);
