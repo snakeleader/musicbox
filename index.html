@@ -28,7 +28,7 @@
         <h1 class="title has-text-centered">
           Music Box
         </h1>
-        <div class="box">Status</div>
+        <div class="box" id="showStatus">Status</div>
         <button class="button is-fullwidth is-info is-large" id="connectBleButton">Connect Music Box</button>
         <button class="button is-fullwidth is-warning is-large" id="disconnectBleButton">Disconnect Music Box</button>
         <br>
@@ -111,6 +111,9 @@
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
+    const bleStateContainer2 = document.getElementById('showStatus');
+
+    
 
     //Define BLE Device Specs
     var deviceName ='musicbox';
@@ -181,6 +184,8 @@
         .then(device => {
             console.log('Device Selected:', device.name);
             bleStateContainer.innerHTML = 'Connected to device ' + device.name;
+            bleStateContainer2.innerHTML = 'Device '+device.name+' is connected';
+            
             bleStateContainer.style.color = "#24af37";
             device.addEventListener('gattservicedisconnected', onDisconnected);
             return device.gatt.connect();
