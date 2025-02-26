@@ -227,9 +227,7 @@
         console.log('Device Disconnected:', event.target.device.name);
         bleStateContainer.innerHTML = "Device disconnected";
         bleStateContainer.style.color = "#d13a30";
-        disconnectButton.style.display = "none";
-        connectButton.style.display = "block";
-        //connectToDevice();
+        connectToDevice();
     }
 
     function handleCharacteristicChange(event){
@@ -273,6 +271,8 @@
                         console.log("Device Disconnected");
                         bleStateContainer.innerHTML = "Device Disconnected";
                         bleStateContainer.style.color = "#d13a30";
+                        disconnectButton.style.display = "none";
+                        connectButton.style.display = "block";
 
                     })
                     .catch(error => {
