@@ -45,12 +45,25 @@
         <button class="button is-fullwidth is-link is-large" id="onButton">Play</button>
         <button class="button is-fullwidth is-danger is-large" id="offButton">Stop</button>
         <br>
+        <div class="field">
+            <label class="label">HH</label>
+            <div class="control">
+              <input class="input" type="number" placeholder="Text input" id="alarmHr"/>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">MM</label>
+            <div class="control">
+                <input class="input" type="number" placeholder="Text input" id="alarmMin"/>
+            </div>
+        </div>  
+
         <!--a href="/message" class="button is-fullwidth is-info is-large">Message Box</a>
         <br>
         <a href="/settings" class="button is-fullwidth is-warning is-large">Settings</a-->
         <!--input type="time" data-display-mode="inline" data-is-range="true" data-close-on-select="false"-->
-        <input class="input" type="number" placeholder="Text input" id="alarmHr"/>
-        <input class="input" type="number" placeholder="Text input" id="alarmMin"/>
+        
+        
         <button class="button" id="setAlarmButton">Set Alarm</button>
       </section>
   </div>
