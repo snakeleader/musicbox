@@ -136,10 +136,11 @@
     });
 
     
-    disconnectButton.style.display = "none";
+    
 
     // Disconnect Button
     disconnectButton.addEventListener('click', disconnectDevice);
+    disconnectButton.style.display = "none";
 
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic(1));
