@@ -145,13 +145,17 @@
         console.log(document.getElementById("alarmMin").value);
         var alarmMin = document.getElementById("alarmMin").value;
         var alarmHr = document.getElementById("alarmHr").value;
-        
+        if (bleServer && bleServer.connected) {
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
                 console.log("send setting: ", characteristic.uuid);
                 const data = new Uint8Array([3,alarmHr,alarmMin]);
                 return characteristic.writeValue(data);
             })
+        } else {
+            console.error ("Bluetooth is not connected. Cannot write to characteristic.")
+            window.alert("Bluetooth is not connected. Cannot write to characteristic. \n Connect to BLE first!")
+        }
        
     }
 
