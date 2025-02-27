@@ -28,7 +28,7 @@
         <h1 class="title has-text-centered">
           Music Box
         </h1>
-        <div class="box" id="showStatus">
+        <!--div class="box" id="showStatus">
             <span class="icon-text">
                 <span class="icon">
                     <i class="fa-solid fa-circle-info"></i>
@@ -41,7 +41,7 @@
                 </span>
                 <span>Home</span>
               </span>
-        </div>
+        </div-->
         <button class="button is-fullwidth is-info is-large" id="connectBleButton">Connect Music Box</button>
         <button class="button is-fullwidth is-warning is-large" id="disconnectBleButton">Disconnect Music Box</button>
         <br>
@@ -252,7 +252,7 @@
         console.log('Device Disconnected:', event.target.device.name);
         bleStateContainer.innerHTML = "Device disconnected";
         bleStateContainer.style.color = "#d13a30";
-        //connectToDevice();
+        connectToDevice();
     }
 
     function handleCharacteristicChange(event){
