@@ -96,10 +96,10 @@
             </div>
         </div>
     </div>
-    <div class="footer">
+    <!--div class="footer">
         <p><a href="https://randomnerdtutorials.com/">Created by RandomNerdTutorials.com</a></p>
         <p><a href="https://RandomNerdTutorials.com/esp32-web-bluetooth/">Read the full project here.</a></p>
-    </div>
+    </div-->
     <div id="modal-js-example" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
@@ -122,6 +122,9 @@
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
     const bleStateContainer2 = document.getElementById('showStatus');
+    const alarmHrValue = document.getElementById('alarmHr');
+    const alarmMinValue = document.getElementById('alarmMin');
+
     
     
 
@@ -245,6 +248,12 @@
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
         retrievedValue.innerHTML = newValueReceived;
+        splitRetrievedValue = newValueReceived.split(":");
+        splitRetrievedValue[0];//Hour
+        splitRetrievedValue[2];//Minute
+        alarmHrValue.value = splitRetrievedValue[0];
+        alarmMinValue.value = splitRetrievedValue[2];
+
         timestampContainer.innerHTML = getDateTime();
     }
 
