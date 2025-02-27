@@ -119,7 +119,7 @@
     const offButton = document.getElementById('offButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
-    const bleStateContainer = document.getElementById('bleState');
+    //const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
     const bleStateContainer2 = document.getElementById('showStatus');
     const alarmHrValue = document.getElementById('alarmHr');
@@ -185,7 +185,7 @@
     function isWebBluetoothEnabled() {
         if (!navigator.bluetooth) {
             console.log('Web Bluetooth API is not available in this browser!');
-            bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
+            //bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
             return false
         }
         console.log('Web Bluetooth API supported in this browser.');
@@ -201,11 +201,11 @@
         })
         .then(device => {
             console.log('Device Selected:', device.name);
-            bleStateContainer.innerHTML = 'Connected to device ' + device.name;
+            //bleStateContainer.innerHTML = 'Connected to device ' + device.name;
             bleStateContainer2.innerHTML = 'Device '+device.name+' is connected';
             disconnectButton.style.display = "block";
             connectButton.style.display = "none";
-            bleStateContainer.style.color = "#24af37";
+            //bleStateContainer.style.color = "#24af37";
             device.addEventListener('gattservicedisconnected', onDisconnected);
             return device.gatt.connect();
         })
@@ -240,8 +240,8 @@
 
     function onDisconnected(event){
         console.log('Device Disconnected:', event.target.device.name);
-        bleStateContainer.innerHTML = "Device disconnected";
-        bleStateContainer.style.color = "#d13a30";
+        //bleStateContainer.innerHTML = "Device disconnected";
+        //bleStateContainer.style.color = "#d13a30";
         connectToDevice();
     }
 
@@ -290,8 +290,8 @@
                     })
                     .then(() => {
                         console.log("Device Disconnected");
-                        bleStateContainer.innerHTML = "Device Disconnected";
-                        bleStateContainer.style.color = "#d13a30";
+                        //bleStateContainer.innerHTML = "Device Disconnected";
+                        //bleStateContainer.style.color = "#d13a30";
                         bleStateContainer2.innerHTML = 'Music box is disconnected';
                         disconnectButton.style.display = "none";
                         connectButton.style.display = "block";
