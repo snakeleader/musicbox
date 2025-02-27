@@ -250,9 +250,9 @@
         retrievedValue.innerHTML = newValueReceived;
         splitRetrievedValue = newValueReceived.split(":");
         splitRetrievedValue[0];//Hour
-        splitRetrievedValue[2];//Minute
+        splitRetrievedValue[1];//Minute
         alarmHrValue.value = splitRetrievedValue[0];
-        alarmMinValue.value = splitRetrievedValue[2];
+        alarmMinValue.value = splitRetrievedValue[1];
 
         timestampContainer.innerHTML = getDateTime();
     }
