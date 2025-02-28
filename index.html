@@ -53,7 +53,7 @@
         <button class="button is-fullwidth is-link is-large" id="onButton">Play</button>
         <button class="button is-fullwidth is-danger is-large" id="offButton">Stop</button>
         <br>
-        <div class="notification">
+        <div class="notification" id="dailyalarm">
             <button class="delete"></button>
             Daily Alarm:
         </div>
@@ -123,6 +123,8 @@
     const bleStateContainer2 = document.getElementById('showStatus');
     const alarmHrValue = document.getElementById('alarmHr');
     const alarmMinValue = document.getElementById('alarmMin');
+    const dailyalarmDiv = document.getElementById('dailyalarm');
+    
 
     
     
@@ -251,6 +253,7 @@
         splitRetrievedValue = newValueReceived.split(":");
         splitRetrievedValue[0];//Hour
         splitRetrievedValue[2];//Minute
+        dailyalarmDiv.innerHTML = splitRetrievedValue[0] +":"+splitRetrievedValue[1];
         //alarmHrValue.value = splitRetrievedValue[0];
         //alarmMinValue.value = splitRetrievedValue[2];
 
