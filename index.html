@@ -81,11 +81,11 @@
     
     <div class="content">
         <div class="card-grid">
-            <div class="card">
+            <!--div class="card">
                 <h2>Fetched Value</h2>
                 <p class="reading"><span id="valueContainer">NaN</span></p>
                 <p class="gray-label">Last reading: <span id="timestamp"></span></p>
-            </div>
+            </div-->
 
             <div class="card">
                 <h2>Control GPIO 2</h2>
@@ -112,7 +112,7 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
-    const retrievedValue = document.getElementById('valueContainer');
+    //const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     //const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
@@ -228,7 +228,7 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            retrievedValue.innerHTML = decodedValue;
+            //retrievedValue.innerHTML = decodedValue;
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -245,7 +245,7 @@
     function handleCharacteristicChange(event){
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
-        retrievedValue.innerHTML = newValueReceived;
+        //retrievedValue.innerHTML = newValueReceived;
         splitRetrievedValue = newValueReceived.split(":");
         //splitRetrievedValue[0];//Hour
         //splitRetrievedValue[1];//Minute
