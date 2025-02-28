@@ -199,9 +199,9 @@
         .then(device => {
             console.log('Device Selected:', device.name);
             //bleStateContainer.innerHTML = 'Connected to device ' + device.name;
-            bleStateContainer2.innerHTML = 'Device '+device.name+' is connected';
-            disconnectButton.style.display = "block";
-            connectButton.style.display = "none";
+            //bleStateContainer2.innerHTML = 'Device '+device.name+' is connected';
+            //disconnectButton.style.display = "block";
+            //connectButton.style.display = "none";
             //bleStateContainer.style.color = "#24af37";
             device.addEventListener('gattservicedisconnected', onDisconnected);
             return device.gatt.connect();
@@ -250,6 +250,9 @@
         //splitRetrievedValue[0];//Hour
         //splitRetrievedValue[1];//Minute
         dailyalarmDiv.innerHTML = "Daily Alarm: "+splitRetrievedValue[0]+':'+splitRetrievedValue[1];
+        bleStateContainer2.innerHTML = 'Device is connected';
+        disconnectButton.style.display = "block";
+        connectButton.style.display = "none";
         //dailyalarmDiv.innerHTML = splitRetrievedValue[2];
         //valueContainer
         //alarmHrValue.value = splitRetrievedValue[0];
